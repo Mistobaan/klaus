@@ -3,15 +3,18 @@ from setuptools import setup, find_packages
 import glob
 
 import os
-req_file = 'requirements.txt'
 
+from functools import partial
+here = partial(os.path.join, os.path.dirname(__file__))
+
+req_file = here('requirements.txt')
 install_requires = [ l.strip() for l in open(req_file,'r').readlines()]
 
 if __name__ == "__main__":
-    if os.system('git submodule update --init'):
+    if os.system('cd %s && git submodule update --init' % here('')):
 
-        with open('./nano/nano.py','r') as fdin:
-            with open('./klaus/nano/__init__.py','w') as fdout:
+        with open( here('nano/nano.py') ,'r') as fdin:
+            with open( here('klaus/nano/__init__.py'),'w') as fdout:
                 fdout.write(fdin.read())
 
     setup(name='klaus',
