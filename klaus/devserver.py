@@ -2,8 +2,6 @@
 import sys, os
 import inspect
 
-sys.path.append(os.path.join(os.path.dirname(__file__), 'nano'))
-
 class ReloadApplicationMiddleware(object):
     def __init__(self, import_func):
         self.import_func = import_func
@@ -35,9 +33,14 @@ class ReloadApplicationMiddleware(object):
 
 def import_app():
     sys.modules.pop('klaus', None)
-    sys.modules.pop('repo', None)
     from klaus import app
     return app
 
-import bjoern
-bjoern.run(ReloadApplicationMiddleware(import_app), '127.0.0.1', 8080)
+if __name__ == '__main__':
+    from klaus import server
+    host = '127.0.0.1'
+    port = 8080
+    app = ReloadApplicationMiddleware(import_app)
+    server.run(app, host, port)
+
+

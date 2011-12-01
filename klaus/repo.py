@@ -1,10 +1,10 @@
 import os
-import itertools
 import cStringIO
 import subprocess
 
 import dulwich, dulwich.patch
 from diff import prepare_udiff
+from klaus.utils import guess_is_binary, force_unicode
 
 def pairwise(iterable):
     """
@@ -140,7 +140,6 @@ class RepoWrapper(dulwich.repo.Repo):
         return tree
 
     def commit_diff(self, commit):
-        from klaus import guess_is_binary, force_unicode
 
         if commit.parents:
             parent_tree = self[commit.parents[0]].tree

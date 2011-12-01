@@ -22,6 +22,7 @@ Requirements
 * Pygments_
 * dulwich_ (>= 0.7.1)
 * Nano_ (shipped as submodule, do a ``git submodule update --init`` to fetch)
+* bjoern_ ( requires libev)
 
 .. _Jinja2: http://jinja.pocoo.org/
 .. _Pygments: http://pygments.org/

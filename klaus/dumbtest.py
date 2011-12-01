@@ -21,7 +21,7 @@ errors = defaultdict(set)
 durations = defaultdict(list)
 
 def main():
-    urls = {'/'}
+    urls = {'/' : ""}
     while urls:
         try:
             http_conn.close()
@@ -58,7 +58,8 @@ def print_stats():
     import pprint
     print len(seen)
     pprint.pprint(dict(errors))
-    print {url: sum(times)/len(times) for url, times in durations.iteritems()}
-atexit.register(print_stats)
-
-main()
+    print dict( (url,sum(times)/len(times)) for url, times in durations.iteritems() )
+    
+if __name__ == '__main__':    
+    atexit.register(print_stats)
+    main()
