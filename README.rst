@@ -18,6 +18,7 @@ Demo at http://klausdemo.lophus.org
 Installation
 ------------
 ::
+
    All the big messy refactory from jonashaag's fork was to be able to do this:
 
    virtualenv your-env
