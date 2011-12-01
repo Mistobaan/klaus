@@ -17,7 +17,7 @@ Demo at http://klausdemo.lophus.org
 
 Requirements
 ------------
-* Python 2.7
+* Python 2.6
 * Jinja2_
 * Pygments_
 * dulwich_ (>= 0.7.1)
