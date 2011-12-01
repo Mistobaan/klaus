@@ -11,15 +11,15 @@ req_file = here('requirements.txt')
 install_requires = [ l.strip() for l in open(req_file,'r').readlines()]
 
 if __name__ == "__main__":
-    if os.system('cd %s && git submodule update --init' % here('')):
+    os.system('cd %s && git submodule update --init' % here(''))
 
-        with open( here('nano/nano.py') ,'r') as fdin:
-            try:
-                os.mkdir( here('klaus/nano/') )
-            except:
-                pass
-            with open( here('klaus/nano/__init__.py'),'w') as fdout:
-                fdout.write(fdin.read())
+    with open( here('nano/nano.py') ,'r') as fdin:
+        try:
+            os.mkdir( here('klaus/nano/') )
+        except Exception,e:
+            print e
+        with open( here('klaus/nano/__init__.py'),'w') as fdout:
+            fdout.write(fdin.read())
 
     setup(name='klaus',
           version='0.1',
