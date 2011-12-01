@@ -1,4 +1,8 @@
 *.pyc
 .pydevproject
 .project
+klaus/nano/__init__.py
 .settings/org.eclipse.core.resources.prefs
+build
+dist
+klaus.egg-info
