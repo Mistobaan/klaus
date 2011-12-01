@@ -17,27 +17,26 @@ Demo at http://klausdemo.lophus.org
 
 Installation
 ------------
+::
    All the big messy refactory from jonashaag's fork was to be able to do this:
 
    virtualenv your-env
    source your-env/bin/activate
    pip install git+http://github.com/Mistobaan/klaus.git#egg=klaus
 
-   # klaus is a script
-   klaus 127.0.0.1 7070 ./repo1 ./repo2 ./repo3
 
 Usage
 -----
-Using the ``quickstart.py`` script
+Using the ``klaus`` script
 ..................................
 ::
 
-   ./quickstart --help
-   ./quickstart.py <host> <port> /path/to/repo1 [../path/to/repo2 [...]]
+   klaus --help
+   klaus <host> <port> /path/to/repo1 [../path/to/repo2 [...]]
 
 Example::
 
-   ./quickstart.py 127.0.0.1 8080 ../klaus ../nano ../bjoern
+   klaus 127.0.0.1 8080 ../klaus ../nano ../bjoern
 
 This will make klaus serve the *klaus*, *nano* and *bjoern* repos at
 ``127.0.0.1:8080`` using Python's built-in wsgiref_ server (or, if installed,
@@ -48,9 +47,5 @@ the bjoern_ server).
 
 Using a real server
 ...................
-The ``klaus.py`` module contains a WSGI ``application`` object. The repo list
-is read from the ``KLAUS_REPOS`` environment variable (space-separated paths).
+The ``klaus/application.py`` module contains a WSGI ``application`` object. 
 
-UWSGI example::
-
-   uwsgi ... -m klaus --env KLAUS_REPOS="/path/to/repo1 /path/to/repo2 ..." ...
