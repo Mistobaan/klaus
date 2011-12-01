@@ -15,36 +15,16 @@ Demo at http://klausdemo.lophus.org
 .. _img3: https://github.com/jonashaag/klaus/raw/master/assets/blob-view.gif
 
 
-Requirements
-------------
-* Python 2.6
-* Jinja2_
-* Pygments_
-* dulwich_ (>= 0.7.1)
-* Nano_ (shipped as submodule, do a ``git submodule update --init`` to fetch)
-* bjoern_ ( requires libev)
-
-.. _Jinja2: http://jinja.pocoo.org/
-.. _Pygments: http://pygments.org/
-.. _dulwich: http://www.samba.org/~jelmer/dulwich/
-.. _Nano: https://github.com/jonashaag/nano
-
-
 Installation
 ------------
-*The same procedure as every year, James.* ::
+   All the big messy refactory from jonashaag's fork was to be able to do this:
 
    virtualenv your-env
    source your-env/bin/activate
+   pip install git+http://github.com/Mistobaan/klaus.git#egg=klaus
 
-   pip install jinja2
-   pip install pygments
-   pip install dulwich
-
-   git clone https://github.com/jonashaag/klaus
-   cd klaus
-   git submodule update --init
-
+   # klaus is a script
+   klaus 127.0.0.1 7070 ./repo1 ./repo2 ./repo3
 
 Usage
 -----
