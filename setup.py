@@ -14,6 +14,10 @@ if __name__ == "__main__":
     if os.system('cd %s && git submodule update --init' % here('')):
 
         with open( here('nano/nano.py') ,'r') as fdin:
+            try:
+                os.mkdir( here('klaus/nano/') )
+            except:
+                pass
             with open( here('klaus/nano/__init__.py'),'w') as fdout:
                 fdout.write(fdin.read())
 
