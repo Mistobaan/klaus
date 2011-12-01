@@ -5,7 +5,7 @@ import glob
 import os
 
 from functools import partial
-here = partial(os.path.join, os.path.dirname(__file__))
+here = partial(os.path.join, os.path.dirname(__file__) or './')
 
 req_file = here('requirements.txt')
 install_requires = [ l.strip() for l in open(req_file,'r').readlines()]
